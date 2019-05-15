@@ -1,0 +1,40 @@
+/*R.drawable.c1,
+R.drawable.c2,
+R.drawable.c3,
+R.drawable.c4,
+R.drawable.c5,
+R.drawable.c6,*/
+{
+  "root": [
+    {
+      "name": "CCTV-1综合",
+      "url": "http://223.110.245.147/ott.js.chinamobile.com/PLTV/3/224/3221226998/index.m3u8",
+      "img": "@drawable/c1"
+    },
+    {
+      "name": "CCTV-2财经",
+      "url": "http://ivi.bupt.edu.cn/hls/cctv2.m3u8",
+      "img": "@drawable/c2"
+    },
+    {
+      "name": "CCTV-3综艺",
+      "url": "http://ivi.bupt.edu.cn/hls/cctv3.m3u8",
+      "img": "@drawable/c3"
+    },
+    {
+      "name": "CCTV-4中文国际",
+      "url": "http://ivi.bupt.edu.cn/hls/cctv4.m3u8",
+      "img": "@drawable/c4"
+    },
+    {
+      "name": "CCTV-5体育",
+      "url": "http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8",
+      "img": "@drawable/c5"
+    },
+    {
+      "name": "CCTV-6电影",
+      "url": "http://ivi.bupt.edu.cn/hls/cctv6.m3u8",
+      "img": "@drawable/c6"
+    }
+  ]
+}
