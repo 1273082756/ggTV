@@ -217,38 +217,19 @@ public class TvAction extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        tvSource.put("CCTV1", "http://223.110.245.147/ott.js.chinamobile.com/PLTV/3/224/3221226998/index.m3u8");
-//        tvSource.put("CCTV2", "http://ivi.bupt.edu.cn/hls/cctv2.m3u8");
-//        tvSource.put("CCTV3", "http://ivi.bupt.edu.cn/hls/cctv3.m3u8");
-//        tvSource.put("CCTV4", "http://ivi.bupt.edu.cn/hls/cctv4.m3u8");
-//        tvSource.put("CCTV5", "http://ivi.bupt.edu.cn/hls/cctv5phd.m3u8");
-//        tvSource.put("CCTV6", "http://ivi.bupt.edu.cn/hls/cctv6.m3u8");
     }
 
     public void test(Map<String, String> tvSource) throws IOException {//read json file
-        InputStream is = TvAction.this.getClass().getClassLoader().getResourceAsStream("assets/" + "data.json");//android studio
-        BufferedReader bufr = new BufferedReader(new InputStreamReader(is));
-        String line;
-        StringBuilder builder = new StringBuilder();
-        while ((line = bufr.readLine()) != null) {
-            builder.append(line);
-        }
-        is.close();
-        bufr.close();
-//        String result = line;
-        try {
-            JSONObject root = new JSONObject(builder.toString());
-            JSONArray array = root.getJSONArray("root");
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject lan = array.getJSONObject(i);
-                Log.d("info", "-----------------------");
-                Log.d("info", lan.getString("name"));
-                Log.d("info", lan.getString("url"));
-                Log.d("info", lan.getString("img"));
-                tvSource.put(lan.getString("name"), lan.getString("url"));
+        myJson json =new myJson("data.json");//传文件进去
+        JSONObject lan;
+        JSONArray array = json.work("root");//指定json根路径
+        for (int i = 0; i < array.length(); i++) {
+            try {
+                lan = array.getJSONObject(i);
+                tvSource.put(lan.getString("name"),lan.getString("url"));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 

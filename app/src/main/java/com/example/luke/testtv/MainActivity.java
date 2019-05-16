@@ -48,37 +48,33 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Log.d("AAA","------------------------------------------------------------");
-        try {
-            test();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        Log.d("AAA","------------------------------------------------------------");
+//
     }
 
-    public void test() throws IOException {//read json file
-        InputStream is = MainActivity.this.getClass().getClassLoader().getResourceAsStream("assets/" + "data.json");//android studio
-        BufferedReader bufr = new BufferedReader(new InputStreamReader(is));
-        String line;
-        StringBuilder builder = new StringBuilder();
-        while ((line = bufr.readLine()) != null) {
-            builder.append(line);
-        }
-        is.close();
-        bufr.close();
-//        String result = line;
-        try {
-            JSONObject root = new JSONObject(builder.toString());
-            JSONArray array = root.getJSONArray("root");
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject lan = array.getJSONObject(i);
-                Log.d("info","-----------------------");
-                Log.d("info",lan.getString("name"));
-                Log.d("info",lan.getString("url"));
-                Log.d("info",lan.getString("img"));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void test() throws IOException {//read json file
+//        InputStream is = MainActivity.this.getClass().getClassLoader().getResourceAsStream("assets/" + "data.json");//android studio
+//        BufferedReader bufr = new BufferedReader(new InputStreamReader(is));
+//        String line;
+//        StringBuilder builder = new StringBuilder();
+//        while ((line = bufr.readLine()) != null) {
+//            builder.append(line);
+//        }
+//        is.close();
+//        bufr.close();
+////        String result = line;
+//        try {
+//            JSONObject root = new JSONObject(builder.toString());
+//            JSONArray array = root.getJSONArray("root");
+//            for (int i = 0; i < array.length(); i++) {
+//                JSONObject lan = array.getJSONObject(i);
+//                Log.d("info","-----------------------");
+//                Log.d("info",lan.getString("name"));
+//                Log.d("info",lan.getString("url"));
+//                Log.d("info",lan.getString("img"));
+//            }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

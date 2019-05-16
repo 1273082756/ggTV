@@ -58,37 +58,18 @@ public class MovieLab {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        tvs.add ( "CCTV1" );
-//        tvs.add ( "CCTV2" );
-//        tvs.add ( "CCTV3" );
-//        tvs.add ( "CCTV4" );
-//        tvs.add ( "CCTV5" );
-//        tvs.add ( "CCTV6" );
     }
     public void test(List<String> tvs) throws IOException {//read json file
-        InputStream is = MovieLab.this.getClass().getClassLoader().getResourceAsStream("assets/" + "data.json");//android studio
-        BufferedReader bufr = new BufferedReader(new InputStreamReader(is));
-        String line;
-        StringBuilder builder = new StringBuilder();
-        while ((line = bufr.readLine()) != null) {
-            builder.append(line);
-        }
-        is.close();
-        bufr.close();
-//        String result = line;
-        try {
-            JSONObject root = new JSONObject(builder.toString());
-            JSONArray array = root.getJSONArray("root");
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject lan = array.getJSONObject(i);
-                Log.d("info","-----------------------");
-                Log.d("info",lan.getString("name"));
-                Log.d("info",lan.getString("url"));
-                Log.d("info",lan.getString("img"));
+        myJson json =new myJson("data.json");//传文件进去
+        JSONObject lan;
+        JSONArray array = json.work("root");//指定json根路径
+        for (int i = 0; i < array.length(); i++) {
+            try {
+                lan = array.getJSONObject(i);
                 tvs.add(lan.getString("name"));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 }
